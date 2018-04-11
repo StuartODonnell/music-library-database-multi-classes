@@ -6,7 +6,7 @@ require('pry-byebug')
 # Artist.delete_all()
 
 artist1 = Artist.new({
-  
+
       "name" => "Tom Jones"
 })
 
