@@ -2,10 +2,10 @@ require('pg')
 require_relative('artist.rb')
 require_relative('../db/sql_runner.rb')
 
-class album
+class Album
 
   attr_reader :id
-  attr_writer :album_title :genre
+  attr_writer :album_title, :genre
 
   def initialize(options)
     @id = options["id"].to_i
