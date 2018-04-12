@@ -5,6 +5,7 @@ require_relative('../db/sql_runner.rb')
 class Artist
 
   attr_reader :id
+  attr_accessor :name
 
   def initialize(options)
     @id = options["id"].to_i
@@ -21,6 +22,12 @@ class Artist
   def self.delete_all()
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)
+  end
+
+  def update()
+    sql = "UPDATE artists SET name = $1 WHERE id = $2;"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
   def Artist.all
